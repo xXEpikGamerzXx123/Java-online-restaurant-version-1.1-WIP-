@@ -1,5 +1,5 @@
 import java.util.*;
-
+//starting the class
 public class RestaurantSimulator {
     static class MenuItem {
         String name;
@@ -26,7 +26,7 @@ public class RestaurantSimulator {
         System.out.println(" Welcome to the Java Restaurant!");
         boolean ordering = true;
 
-        while (ordering) {
+        while (ordering) {//this loop asks the user for input and will either show the menu or proceed to checkout
             showMenu();
             System.out.print("Enter the number of the item to add to cart (or 0 to checkout): ");
             int choice = scanner.nextInt();
@@ -63,7 +63,7 @@ public class RestaurantSimulator {
         }
     }
 
-    static void checkout(Scanner scanner) {
+    static void checkout(Scanner scanner) {//this is the function for checkout when paying for the items
         System.out.println("\n Your Cart:");
         double total = 0;
         for (MenuItem item : cart) {
