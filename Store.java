@@ -23,7 +23,7 @@ public class RestaurantSimulator {
         Scanner scanner = new Scanner(System.in);
         setupMenu();
 
-        System.out.println("🍽️ Welcome to the Java Restaurant!");
+        System.out.println(" Welcome to the Java Restaurant!");
         boolean ordering = true;
 
         while (ordering) {
@@ -38,9 +38,9 @@ public class RestaurantSimulator {
 
             if (choice >= 1 && choice <= menu.size()) {
                 cart.add(menu.get(choice - 1));
-                System.out.println("✅ Added to cart: " + menu.get(choice - 1).name);
+                System.out.println(" Added to cart: " + menu.get(choice - 1).name);
             } else {
-                System.out.println("❌ Invalid choice.");
+                System.out.println(" Invalid choice.");
             }
         }
 
@@ -57,30 +57,30 @@ public class RestaurantSimulator {
     }
 
     static void showMenu() {
-        System.out.println("\n📋 Menu:");
+        System.out.println("\n Menu:");
         for (int i = 0; i < menu.size(); i++) {
             System.out.println((i + 1) + ". " + menu.get(i));
         }
     }
 
     static void checkout(Scanner scanner) {
-        System.out.println("\n🛒 Your Cart:");
+        System.out.println("\n Your Cart:");
         double total = 0;
         for (MenuItem item : cart) {
             System.out.println("- " + item);
             total += item.price;
         }
-        System.out.printf("💵 Total: $%.2f\n", total);
+        System.out.printf(" Total: $%.2f\n", total);
 
         System.out.print("Enter payment amount: $");
         double payment = scanner.nextDouble();
 
         if (payment >= total) {
             double change = payment - total;
-            System.out.printf("✅ Payment accepted! Your change is $%.2f\n", change);
-            System.out.println("🙏 Thank you for dining with us!");
+            System.out.printf(" Payment accepted! Your change is $%.2f\n", change);
+            System.out.println(" Thank you for dining with us!");
         } else {
-            System.out.printf("❌ Not enough money. You need $%.2f more.\n", total - payment);
+            System.out.printf(" Not enough money. You need $%.2f more.\n", total - payment);
             System.out.println("Please try again next time.");
         }
     }
