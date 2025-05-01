@@ -1,4 +1,5 @@
 import java.util.*;
+
 //starting the class
 public class RestaurantSimulator {
     static class MenuItem {
@@ -17,13 +18,23 @@ public class RestaurantSimulator {
     }
 
     static List<MenuItem> menu = new ArrayList<>();
+
+    static void setupMenu() {
+        menu.add(new MenuItem("Burger", 5.99));
+        menu.add(new MenuItem("Pizza", 7.49));
+        menu.add(new MenuItem("Salad", 4.99));
+        menu.add(new MenuItem("Soda", 1.99));
+        menu.add(new MenuItem("Ice Cream", 2.99));
+    }
+
+
     static List<MenuItem> cart = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         setupMenu();
 
-        System.out.println(" Welcome to the Java Restaurant!");
+        System.out.println(" Welcome to the epic restaurant");
         boolean ordering = true;
 
         while (ordering) {//this loop asks the user for input and will either show the menu or proceed to checkout
@@ -40,20 +51,12 @@ public class RestaurantSimulator {
                 cart.add(menu.get(choice - 1));
                 System.out.println(" Added to cart: " + menu.get(choice - 1).name);
             } else {
-                System.out.println(" Invalid choice.");
+                System.out.println(" Invalid choice");
             }
         }
 
         checkout(scanner);
         scanner.close();
-    }
-
-    static void setupMenu() {
-        menu.add(new MenuItem("Burger", 5.99));
-        menu.add(new MenuItem("Pizza", 7.49));
-        menu.add(new MenuItem("Salad", 4.99));
-        menu.add(new MenuItem("Soda", 1.99));
-        menu.add(new MenuItem("Ice Cream", 2.99));
     }
 
     static void showMenu() {
@@ -77,11 +80,11 @@ public class RestaurantSimulator {
 
         if (payment >= total) {
             double change = payment - total;
-            System.out.printf(" Payment accepted! Your change is $%.2f\n", change);
-            System.out.println(" Thank you for dining with us!");
+            System.out.printf(" Payment accepted, Your change is $%.2f\n", change);
+            System.out.println(" Thank you for dining with us");
         } else {
-            System.out.printf(" Not enough money. You need $%.2f more.\n", total - payment);
-            System.out.println("Please try again next time.");
+            System.out.printf(" Not enough money. You need $%.2f more\n", total - payment);
+            System.out.println("Please try again next time");
         }
     }
 }
